@@ -19,9 +19,20 @@ namespace AOPExample.AOP
 
         public bool ShouldInterceptMethod(Type type, MethodInfo methodInfo)
         {
-            //return methodInfo.CustomAttributes.Any(a => a.GetType() == typeof(UseInterceptorAttribute));
-            //return true;
-            return methodInfo.CustomAttributes.Count() > 0;
+            //var assembly = Assembly.LoadFrom(type.Assembly.Location);
+            //var method = assembly
+            //    .GetTypes()
+            //    .FirstOrDefault(t => t.Name == "ProductService") //TODO: asıl sorun type olarak gelenin interface olması. gelen type'daki methodların üzerinde attribute yok!!!!
+            //    .GetMethods()
+            //    .FirstOrDefault(m => m.Name == methodInfo.Name);
+
+            //var result = method
+            //    .CustomAttributes
+            //    .Any(a => a.AttributeType == typeof(UseInterceptorAttribute));
+            //return result;
+            return methodInfo
+                .CustomAttributes
+                .Any(a => a.AttributeType == typeof(UseInterceptorAttribute));
         }
     }
 }

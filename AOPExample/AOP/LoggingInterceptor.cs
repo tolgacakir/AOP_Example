@@ -16,11 +16,12 @@ namespace AOPExample.AOP
         public void Intercept(IInvocation invocation)
         {
             _logger.Verbose("Calling method: {0} with parameters: {1}... ",
-                invocation.Method.Name,
-                string.Join(", ", invocation.Arguments.Select(a => (a ?? "").ToString()).ToArray()));
-            
+                   invocation.Method.Name,
+                   string.Join(", ", invocation.Arguments.Select(a => (a ?? "").ToString()).ToArray()));
+
             invocation.Proceed();
-            _logger.Verbose("The method: {methodName} return value was {@Return}.",invocation.Method.Name, invocation.ReturnValue);
+            _logger.Verbose("The method: {methodName} return value was {@Return}.", invocation.Method.Name, invocation.ReturnValue);
+
         }
     }
 }

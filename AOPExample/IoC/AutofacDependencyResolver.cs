@@ -30,14 +30,14 @@ namespace AOPExample.IoC
 
 
 
-
             var proxyGenerationOptions = new ProxyGenerationOptions(new ProductServiceProxyGenerationHook());
+
             builder.RegisterType<ProductService>()
                 .As<IProductService>()
                 .WithParameter("logger", logger)
                 .EnableInterfaceInterceptors(proxyGenerationOptions)
-                .InterceptedBy(typeof(LoggingInterceptor))
-                .InterceptedBy(typeof(ExceptionHandlingInterceptor));
+                .InterceptedBy(typeof(LoggingInterceptor));
+                //.InterceptedBy(typeof(ExceptionHandlingInterceptor));
 
             builder.Register(c => new LoggingInterceptor(logger));
             builder.Register(c => new ExceptionHandlingInterceptor(logger));

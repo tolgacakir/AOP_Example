@@ -7,7 +7,7 @@ namespace AOPExample.AOP
     [System.AttributeUsage(AttributeTargets.Method, Inherited = true, AllowMultiple = true)]
     sealed class UseInterceptorAttribute : Attribute
     {
-        public UseInterceptorAttribute()
+        public UseInterceptorAttribute() //TODO: Interceptor tipleri parametre olarak alınıp hangi interceptorlerin kullanılacağı seçilebilir ya da interceptor seçimi makalesine bakılabilir.
         {
         }
     }

@@ -14,11 +14,11 @@ namespace AOPExample.BusinessLogic
             _logger = logger;
         }
 
-        [UseInterceptor]
+        
         public Product AOP_Get(string productNumber, string serialNumber)
         {
             var m = GetType().GetMethod("AOP_Get");
-            throw new NotImplementedException();
+            return null;
 
         }
 
@@ -28,20 +28,15 @@ namespace AOPExample.BusinessLogic
             return true;
         }
 
+
         public Product Get(string productNumber, string serialNumber)
         {
-            //throw new NotImplementedException();
             return new Product
             {
                 Id = 5,
                 ProductNumber = "testPN",
                 SerialNumber = "testSN"
             };
-        }
-
-        public int Set(string productNumber, string serialNumber)
-        {
-            throw new NotImplementedException();
         }
     }
 }
